@@ -8,7 +8,14 @@ let github: MockGithub;
 beforeEach(async () => {
   github = new MockGithub({
     repo: {
-      setupHelmfile: {},
+      setupHelmfile: {
+        files: [
+          {
+            dest: "dist/",
+            src: path.join(__dirname, "..", "dist/"),
+          },
+        ],
+      },
     },
   });
 
