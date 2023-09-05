@@ -11,6 +11,17 @@ beforeEach(async () => {
       setupHelmfile: {
         files: [
           {
+            dest: ".github/workflows/workflow.yaml",
+            src: path.join(__dirname, "workflow.yaml"),
+          },
+          {
+            dest: "action.yaml",
+            // TODO: use the real action.yaml once #1988 has been merged and
+            // released
+            // https://github.com/nektos/act/pull/1988
+            src: path.join(__dirname, "action.yaml"),
+          },
+          {
             dest: "dist/",
             src: path.join(__dirname, "..", "dist/"),
           },
@@ -31,5 +42,9 @@ test("it works", async () => {
 
   const result = await act.runEvent("push", { logFile: "act.log" });
 
-  expect(result).toStrictEqual([]);
+  expect(result).toStrictEqual([
+    expect.objectContaining({ status: 0 }),
+    expect.objectContaining({ status: 0 }),
+    expect.objectContaining({ status: 0 }),
+  ]);
 });
