@@ -1,0 +1,17 @@
+name: setup-helmfile
+
+on:
+    - push
+
+jobs:
+    setup-skaffold:
+        name: Setup Helmfile
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4.0.0
+
+            - uses: ./
+
+            - run: helmfile help

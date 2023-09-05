@@ -1,0 +1,29 @@
+branding:
+    color: gray-dark
+
+    icon: arrow-down
+
+description: Install and initialize Helmfile
+
+inputs:
+    skip-init:
+        default: "false"
+
+        description: |
+            When "true", skip Helmfile initialization. Defaults to "false".
+
+        required: true
+
+    version:
+        default: latest
+
+        description: Version of Helmfile
+
+        required: true
+
+name: Setup Helmfile
+
+runs:
+    main: dist/index.js
+
+    using: node20
