@@ -15,3 +15,5 @@ jobs:
             - uses: ./
 
             - run: helmfile help
+
+            - run: helm env
