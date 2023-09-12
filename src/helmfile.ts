@@ -1,6 +1,8 @@
 import crypto from "crypto";
 import fs from "fs";
 import fsPromises from "fs/promises";
+import os from "os";
+import path from "path";
 import streamPromises from "stream/promises";
 
 import * as core from "@actions/core";
@@ -140,10 +142,42 @@ export async function getVersion(requestedVersion: string): Promise<string> {
  *
  * Same as running `helmfile init --force`.
  *
+ * Attempts to speed up the initialization process by restoring the tools from
+ * the cache if possible.
+ *
+ * @param version version of Helmfile
+ *
  * @param binaryPath path to the Helmfile binary
  */
-export async function initialize(binaryPath: string): Promise<void> {
-  await exec.exec(binaryPath, ["init", "--force"], { silent: !core.isDebug() });
+export async function initialize(
+  version: string,
+  binaryPath: string,
+): Promise<void> {
+  const arch = host.getArch();
+
+  const toolName = "helmPlugins";
+
+  const cachePath = toolCache.find(toolName, version, arch);
+
+  const pluginsPath = path.join(
+    os.homedir(),
+    ".local",
+    "share",
+    "helm",
+    "plugins",
+  );
+
+  if (cachePath) {
+    await fsPromises.mkdir(pluginsPath, { recursive: true });
+
+    await fsPromises.cp(cachePath, pluginsPath, { recursive: true });
+  }
+
+  await exec.exec(binaryPath, ["init", "--force"], {
+    silent: !core.isDebug(),
+  });
+
+  await toolCache.cacheDir(pluginsPath, toolName, version, arch);
 }
 
 /**

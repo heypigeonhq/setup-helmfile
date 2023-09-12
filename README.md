@@ -20,6 +20,6 @@ GitHub Action for installing and initializing Helmfile.
 
     # Version of Helmfile to install. Only supports exact versions and "latest".
     # Defaults to "latest".
-    # Example: "0.156.0"
+    # Example: "0.157.0"
     version: ""
 ```

@@ -24,7 +24,7 @@ async function run(): Promise<void> {
   if (skipInit !== "true") {
     core.info("Installing additional tools needed by Helmfile...");
 
-    await helmfile.initialize(installPath);
+    await helmfile.initialize(version, installPath);
   }
 
   core.info("Helmfile is ready to use");
