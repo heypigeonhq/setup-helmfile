@@ -2,6 +2,12 @@
   "name": "setup-helmfile-action",
   "private": true,
   "version": "1.0.0",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1",
+    "@actions/tool-cache": "^2.0.1",
+    "node-fetch": "^3.3.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
@@ -26,11 +32,5 @@
     "eslint:check": "eslint '**/*.{cjs,js,ts}'",
     "prettier:check": "prettier --check .",
     "test": "npm run build && jest ./__tests__/*.test.ts"
-  },
-  "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/exec": "^1.1.1",
-    "@actions/tool-cache": "^2.0.1",
-    "node-fetch": "^3.3.2"
   }
 }
