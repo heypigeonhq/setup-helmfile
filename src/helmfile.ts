@@ -125,11 +125,14 @@ export function getChecksumsFilename(version: string) {
  *
  * @param requestedVersion version of Helmfile requested
  */
-export async function getVersion(requestedVersion: string): Promise<string> {
+export async function getVersion(
+  requestedVersion: string,
+  token: string,
+): Promise<string> {
   let version = requestedVersion;
 
   if (version === "latest") {
-    const release = await github.getLatestRelease("helmfile/helmfile");
+    const release = await github.getLatestRelease("helmfile/helmfile", token);
 
     version = release.tagName.replace(/^v/, "");
   }
