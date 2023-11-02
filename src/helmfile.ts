@@ -5,6 +5,7 @@ import os from "os";
 import path from "path";
 import streamPromises from "stream/promises";
 
+import * as cache from "@actions/cache";
 import * as core from "@actions/core";
 import * as exec from "@actions/exec";
 import * as toolCache from "@actions/tool-cache";
@@ -78,6 +79,8 @@ async function fetchTool(
       version,
       arch,
     );
+  } else {
+    core.info("Helmfile found in cache");
   }
 
   return `${cachePath}/${filename}`;
@@ -156,12 +159,6 @@ export async function initialize(
   version: string,
   binaryPath: string,
 ): Promise<void> {
-  const arch = host.getArch();
-
-  const toolName = "helmPlugins";
-
-  const cachePath = toolCache.find(toolName, version, arch);
-
   const pluginsPath = path.join(
     os.homedir(),
     ".local",
@@ -170,17 +167,21 @@ export async function initialize(
     "plugins",
   );
 
-  if (cachePath) {
-    await fsPromises.mkdir(pluginsPath, { recursive: true });
+  const primaryKey = `setup-helmfile-plugins-${version}`;
 
-    await fsPromises.cp(cachePath, pluginsPath, { recursive: true });
+  const cacheKey = await cache.restoreCache([pluginsPath], primaryKey, []);
+
+  if (cacheKey) {
+    await fsPromises.mkdir(pluginsPath, { recursive: true });
   }
 
   await exec.exec(binaryPath, ["init", "--force"], {
     silent: !core.isDebug(),
   });
 
-  await toolCache.cacheDir(pluginsPath, toolName, version, arch);
+  if (!cacheKey) {
+    await cache.saveCache([pluginsPath], primaryKey);
+  }
 }
 
 /**
