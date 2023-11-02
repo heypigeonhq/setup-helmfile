@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/heypigeonhq/setup-helmfile/compare/v1.1.0...v1.2.0) (2023-11-02)
+
+
+### Features
+
+* store plugins in cache ([#55](https://github.com/heypigeonhq/setup-helmfile/issues/55)) ([2581fa4](https://github.com/heypigeonhq/setup-helmfile/commit/2581fa4d1ef874a727154412f415be95ab7de06e))
+* use GitHub token when calling API ([#53](https://github.com/heypigeonhq/setup-helmfile/issues/53)) ([36963e9](https://github.com/heypigeonhq/setup-helmfile/commit/36963e9ae5fe556fc5a3110b8e3a8ef358afa29f))
+
 ## [1.1.0](https://github.com/heypigeonhq/setup-helmfile/compare/v1.0.0...v1.1.0) (2023-09-12)
 
 
