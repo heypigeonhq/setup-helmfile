@@ -6,6 +6,11 @@ branding:
 description: Install and initialize Helmfile
 
 inputs:
+    github-token:
+        description: GitHub token
+
+        required: false
+
     skip-init:
         default: "false"
 

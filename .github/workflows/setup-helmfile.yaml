@@ -1,7 +1,11 @@
 name: setup-helmfile
 
 on:
-    - push
+    pull_request:
+        types:
+            - opened
+
+    push:
 
 jobs:
     setup-skaffold:
@@ -13,6 +17,9 @@ jobs:
             - uses: actions/checkout@v4.1.1
 
             - uses: ./
+
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 
             - run: helmfile help
 

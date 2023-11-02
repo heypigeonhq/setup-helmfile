@@ -5,11 +5,13 @@ import * as helmfile from "./helmfile";
 async function run(): Promise<void> {
   const requestedVersion = core.getInput("version");
 
+  const token = core.getInput("token");
+
   const skipInit = core.getInput("skip-init");
 
   core.info(`Requested version of Helmfile is "${requestedVersion}"`);
 
-  const version = await helmfile.getVersion(requestedVersion);
+  const version = await helmfile.getVersion(requestedVersion, token);
 
   core.info(`Using version v${version}`);
 
