@@ -78,6 +78,8 @@ async function fetchTool(
       version,
       arch,
     );
+  } else {
+    core.info("Helmfile found in cache");
   }
 
   return `${cachePath}/${filename}`;
