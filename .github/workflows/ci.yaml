@@ -141,6 +141,4 @@ jobs:
             - uses: google-github-actions/release-please-action@v4.0.1
 
               with:
-                  package-name: setup-helmfile-action
-
                   release-type: node
