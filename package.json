@@ -1,5 +1,5 @@
 {
-  "name": "setup-helmfile-action",
+  "name": "setup-helmfile",
   "private": true,
   "version": "1.2.0",
   "dependencies": {
