@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/heypigeonhq/setup-helmfile/compare/v1.2.0...v1.2.1) (2024-01-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @actions/cache to v3.2.3 ([#97](https://github.com/heypigeonhq/setup-helmfile/issues/97)) ([7a8aa80](https://github.com/heypigeonhq/setup-helmfile/commit/7a8aa80f7e379bbf6fd7e5d07e26674a6ffba269))
+
 ## [1.2.0](https://github.com/heypigeonhq/setup-helmfile/compare/v1.1.0...v1.2.0) (2023-11-02)
 
 
