@@ -91,6 +91,15 @@ jobs:
 
               run: npm test
 
+            - if: ${{ !cancelled() }}
+
+              uses: actions/upload-artifact@v4.1.0
+
+              with:
+                  name: act.log
+
+                  path: ./act.log
+
     check-style:
         name: Check Style
 
