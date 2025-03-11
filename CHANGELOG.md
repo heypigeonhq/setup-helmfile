@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.3](https://github.com/heypigeonhq/setup-helmfile/compare/v1.2.2...v1.2.3) (2025-03-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @actions/cache to v3.3.0 ([#212](https://github.com/heypigeonhq/setup-helmfile/issues/212)) ([fff8bf1](https://github.com/heypigeonhq/setup-helmfile/commit/fff8bf1bddb68a9039e91d9d1edbf7eed87d5168))
+* **deps:** update dependency @actions/cache to v4 ([#220](https://github.com/heypigeonhq/setup-helmfile/issues/220)) ([c1232f6](https://github.com/heypigeonhq/setup-helmfile/commit/c1232f64e6165fe377efe0429673a9d0e43cbc2c))
+* **deps:** update dependency @actions/core to v1.11.1 ([#200](https://github.com/heypigeonhq/setup-helmfile/issues/200)) ([216c5a2](https://github.com/heypigeonhq/setup-helmfile/commit/216c5a2d47dd2ff9ec39f237b26e576700cef0f2))
+* **deps:** update dependency @actions/tool-cache to v2.0.2 ([#227](https://github.com/heypigeonhq/setup-helmfile/issues/227)) ([a3fcf6a](https://github.com/heypigeonhq/setup-helmfile/commit/a3fcf6a836d918e0825bb1083f1350774e886726))
+
 ## [1.2.2](https://github.com/heypigeonhq/setup-helmfile/compare/v1.2.1...v1.2.2) (2024-02-01)
 
 
