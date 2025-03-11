@@ -8,5 +8,12 @@
     "strict": true,
     "target": "es2022"
   },
-  "include": [".*.cjs", "*.cjs", "*.ts", "__tests__/*", "src/**/*"]
+  "include": [
+    ".*.cjs",
+    "*.cjs",
+    "*.ts",
+    "__tests__/*",
+    "src/**/*",
+    "commitlint.config.mjs"
+  ]
 }
