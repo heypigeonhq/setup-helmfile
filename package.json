@@ -16,7 +16,7 @@
     "@kie/act-js": "^2.3.0",
     "@kie/mock-github": "^2.0.0",
     "@types/jest": "^29.5.4",
-    "@vercel/ncc": "^0.38.0",
+    "@vercel/ncc": "^0.45.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.0.0",
